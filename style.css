@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-html, body{
-    height: 100%;
-}
-
 body{
     background-color: antiquewhite;
     display: flex;
@@ -17,19 +13,58 @@ body{
 }
 
 .navbar, .container{
-    width: 800px;
+    width: 900px;
     background-color: burlywood;
 }
 
-.navbar {
+.navbar{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.settings, .title, .buttons{
     display:flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 1em;
-    padding: 1em;
+    width: 300px;
+    gap: 10px;
+}
+
+.title{
+    font-size: 64px;
+    margin: 0 0.5em;
+}
+
+button, input{
+    height: 40px;
+}
+
+.size{
+    width: 100px;
+}
+
+.cselect{
+    padding: 0.25em;
+
+}
+
+button{
+    padding: 0 1em;
 }
 
 .container{
+    --size: 20;
     height: 800px;
+    display: grid;
+    gap: 3px;
+    padding:3px;
+    grid-template-rows: repeat(var(--size), 1fr);
+    grid-template-columns: repeat(var(--size), 1fr);
+}
+
+.pixel{
+    background-color: white;
 }
