@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar, .container{
+    width: 800px;
+    background-color: burlywood;
+}
+
+.navbar {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.container{
+    height: 800px;
+}
