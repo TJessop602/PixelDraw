@@ -4,16 +4,21 @@ function makeGrid(size){
         const pix = document.createElement('div');
         pix.classList.add('pixel');
         container.appendChild(pix);
-        pix.addEventListener("mouseover", draw);
         pix.addEventListener("mousedown", draw);
+        pix.addEventListener("mouseover", draw);
     }
 }
 
 function draw(e){
+    e.preventDefault();
     if(!drawing){
         return;
     }
-    e.target.style.backgroundColor = colour.value;
+    if(!erasing){
+        e.target.style.backgroundColor = colour.value;
+    }else{
+        e.target.style.backgroundColor = "white"
+    }
 }
 
 function resetGrid(){
@@ -23,6 +28,7 @@ function resetGrid(){
 }
 
 let drawing = false;
+let erasing = false;
 const container = document.querySelector(".container");
 const gridSize = document.querySelector(".size");
 const reset = document.querySelector(".reset");
@@ -37,6 +43,18 @@ window.addEventListener("mousedown", function(){
 
 window.addEventListener("mouseup", function(){
     drawing = false;
+})
+
+window.addEventListener("keydown", (event) => {
+    if(event.code = "ControlLeft"){
+        erasing = true;
+    }
+})
+
+window.addEventListener("keyup", (event) => {
+    if(event.code = "ControlLeft"){
+        erasing = false;
+    }
 })
 
 makeGrid(size);
